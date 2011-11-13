@@ -48,13 +48,25 @@ public class ShifrActivity extends Activity implements OnClickListener {
 		
 	}
 
-	private char[] Decrypt(char[] charArray) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	private char[] Crypt(char[] text) {
+		
+		int i = 0, j = 0, ij; char ch;
 
-	private char[] Crypt(char[] charArray) {
-		// TODO Auto-generated method stub
-		return null;
+    	for(int k = 0, ki = 0; k < text.length; k++, ki++)
+    	{
+    		 if(ki == key.length) ki=0;
+             for(ij = 0, ch = 'a'; ch <= 'z'; ch++, ij++)
+             {
+            	 if(text[k] == ch) i = ij;
+                 if(key[ki] == ch) j = ij;
+             }
+             if(text[k] != ' ') text[k] = table[i][j];
+    	}
+		return text;
+	}
+	
+	private char[] Decrypt(char[] text) {
+		
+		return text;
 	}
 }
