@@ -13,6 +13,7 @@ public class ShifrActivity extends Activity implements OnClickListener {
 	EditText editText1;
 	TextView textView1;
 	Button button1;
+	Button button2;
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +22,9 @@ public class ShifrActivity extends Activity implements OnClickListener {
         editText1 = (EditText) findViewById(R.id.editText1);
         textView1 = (TextView) findViewById(R.id.textView1);
         button1 = (Button) findViewById(R.id.button1);
+        button2 = (Button) findViewById(R.id.button2);
         button1.setOnClickListener(this);
+        button2.setOnClickListener(this);
         
     }
 
@@ -32,12 +35,22 @@ public class ShifrActivity extends Activity implements OnClickListener {
 			//case R.id.radio1:editText2.setText("Нажата кнопка Cancel");
 			//break;
 			case R.id.button1:
-	  			char[] csText = Crypt(editText1.getText().toString().toCharArray());
-	  			CharSequence seq = new String(csText);
-	  			textView1.setText(seq);
+	  			char[] cText = Crypt(editText1.getText().toString().toCharArray());
+	  			CharSequence seq1 = new String(cText);
+	  			textView1.setText(seq1);
+			break;
+			case R.id.button2:
+	  			char[] dcText = Decrypt(editText1.getText().toString().toCharArray());
+	  			CharSequence seq2 = new String(dcText);
+	  			textView1.setText(seq2);
 			break;
 		}
 		
+	}
+
+	private char[] Decrypt(char[] charArray) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	private char[] Crypt(char[] charArray) {
