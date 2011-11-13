@@ -3,4 +3,8 @@
 
     <string name="app_name">Shifr</string>
 
+    <string name="button_crypt">Crypt</string>
+
+    <string name="button_decrypt">Decrypt</string>
+
 </resources>
