@@ -100,13 +100,13 @@ public class ShifrActivity extends Activity implements OnClickListener {
 		
 		int j = 0, ij; char ch;
 
-		for(int k=0, ki=0; text[k]!='\0'; k++, ki++)
+		for(int k = 0, ki = 0; k != text.length; k++, ki++)
 		{
-	         if(key[ki]=='\0') ki=0; 
-			 for(ij=0, ch='a'; ch<='z'; ch++, ij++)
-	              if(key[ki]==ch) j=ij;
-	         for(ij=0, ch='a'; ch<='z'; ch++, ij++)
-	              if(text[k]==table[ij][j]) { text[k]=ch; break; }
+	         if(ki == key.length) ki = 0; 
+			 for(ij = 0, ch = 'a'; ch <= 'z'; ch++, ij++)
+	              if(key[ki] == ch) j = ij;
+	         for(ij = 0, ch = 'a'; ch <= 'z'; ch++, ij++)
+	              if(text[k] == table[ij][j]) { text[k] = ch; break; }
 		}
 		
 		return text;
