@@ -61,10 +61,6 @@ public class ShifrActivity extends Activity implements OnClickListener {
 
 	public void onClick(View v) {
 		switch (v.getId()) {
-			//case R.id.radio0:editText2.setText("Нажата кнопка ОК");
-			//break;
-			//case R.id.radio1:editText2.setText("Нажата кнопка Cancel");
-			//break;
 			case R.id.button1:
 	  			char[] cText = Crypt(editText1.getText().toString().toCharArray());
 	  			CharSequence seq1 = new String(cText);
