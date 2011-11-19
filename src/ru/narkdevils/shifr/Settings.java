@@ -60,8 +60,8 @@ public class Settings {
     		{'Z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y'}
 			};
     
-    private char[] key_lc = {'n', 'a', 'r', 'k', 'd', 'e', 'v', 'i', 'l', 's'};
-    private char[] key_uc = {'N', 'A', 'R', 'K', 'D', 'E', 'V', 'I', 'L', 'S'};
+    private char[] key = {'n', 'a', 'r', 'k', 'd', 'e', 'v', 'i', 'l', 's'};
+    
 
 
 }

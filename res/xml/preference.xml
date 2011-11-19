@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <PreferenceCategory android:title="@string/settings_general">
+
+    <EditTextPreference
+      android:key="key_id"
+      android:defaultValue="narkdevils"
+      android:title="@string/key_title"
+      android:summary="@string/key_summary"
+      android:dialogTitle="@string/key_dialogTitle"
+      android:maxLength="16"
+      android:persistent="true" />
+
+  </PreferenceCategory>
+
+</PreferenceScreen>

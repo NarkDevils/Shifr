@@ -2,7 +2,9 @@ package ru.narkdevils.shifr;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -45,6 +47,9 @@ public class ShifrActivity extends Activity implements OnClickListener {
         switch (item.getItemId()) {
         case R.id.share:
         	share();
+            return true;
+        case R.id.settings:
+        	startActivity(new Intent(this, Preferences.class));
             return true;
         case R.id.quit:
             quit();
@@ -112,8 +117,7 @@ public class ShifrActivity extends Activity implements OnClickListener {
     		{'Z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y'}
 			};
     
-    private char[] key_lc = {'n', 'a', 'r', 'k', 'd', 'e', 'v', 'i', 'l', 's'};
-    private char[] key_uc = {'N', 'A', 'R', 'K', 'D', 'E', 'V', 'I', 'L', 'S'};
+    private char[] key;
 
 	public void onClick(View v) {
 		switch (v.getId()) {
@@ -133,26 +137,28 @@ public class ShifrActivity extends Activity implements OnClickListener {
 	
 	private char[] Crypt(char[] text) {
 		
-		int i = 0, j = 0, ij; char ch;
+		getPrefs();
+		
+		int i = 0, j = 0, ij; char uCh, lCh;
 
     	for(int k = 0, ki = 0; k < text.length; k++, ki++)
     	{
-    		 if(ki == key_lc.length) ki=0;
+    		 if(ki == key.length) ki=0;
     		 if(text[k] >= 'a' && text[k] <= 'z')
     		 {
-    			 for(ij = 0, ch = 'a'; ch <= 'z'; ch++, ij++)
+    			 for(ij = 0, uCh = 'A', lCh = 'a'; uCh <= 'Z' && lCh <= 'z'; uCh++, lCh++, ij++)
     			 {
-    				 if(text[k] == ch) i = ij;
-    				 if(key_lc[ki] == ch) j = ij;
+    				 if(text[k] == lCh) i = ij;
+    				 if(key[ki] == lCh || key[ki] == uCh) j = ij;
     			 }
     		 	 if(text[k] != ' ') text[k] = table_lc[i][j];
     		 }
     		 else if(text[k] >= 'A' && text[k] <= 'Z')
     		 {
-    			 for(ij = 0, ch = 'A'; ch <= 'Z'; ch++, ij++)
+    			 for(ij = 0, uCh = 'A', lCh = 'a'; uCh <= 'Z' && lCh <= 'z'; uCh++, lCh++, ij++)
                  {
-                	 if(text[k] == ch) i = ij;
-                     if(key_uc[ki] == ch) j = ij;
+                	 if(text[k] == uCh) i = ij;
+                     if(key[ki] == uCh || key[ki] == lCh) j = ij;
                  }
     		 	 if(text[k] != ' ') text[k] = table_uc[i][j];
     		 }
@@ -167,14 +173,22 @@ public class ShifrActivity extends Activity implements OnClickListener {
 
 		for(int k = 0, ki = 0; k != text.length; k++, ki++)
 		{
-	         if(ki == key_lc.length) ki = 0; 
+	         if(ki == key.length) ki = 0; 
 			 for(ij = 0, ch = 'a'; ch <= 'z'; ch++, ij++)
-	              if(key_lc[ki] == ch) j = ij;
+	              if(key[ki] == ch) j = ij;
 	         for(ij = 0, ch = 'a'; ch <= 'z'; ch++, ij++)
 	              if(text[k] == table_lc[ij][j]) { text[k] = ch; break; }
 		}
 		
 		return text;
+	}
+	
+	private void getPrefs() {
+        SharedPreferences prefs = PreferenceManager
+                        .getDefaultSharedPreferences(getBaseContext());
+        char[] editTextPreference = prefs
+        				.getString("key_id", "narkdevils").toCharArray();
+        key = editTextPreference;
 	}
 	
 	private void share() {
