@@ -1,7 +1,11 @@
 package ru.narkdevils.shifr;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -28,7 +32,29 @@ public class ShifrActivity extends Activity implements OnClickListener {
         
     }
     
-    private char[][] table_lc = {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.icon_menu, menu);
+        return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+        case R.id.share:
+        	share();
+            return true;
+        case R.id.quit:
+            quit();
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    }
+    
+	private char[][] table_lc = {
     		{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'},
     		{'b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','a'},
     		{'c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','a','b'},
@@ -150,4 +176,17 @@ public class ShifrActivity extends Activity implements OnClickListener {
 		
 		return text;
 	}
+	
+	private void share() {
+		String Text = textView1.getText().toString();
+		Intent shareIntent = new Intent(Intent.ACTION_SEND);
+		shareIntent.setType("text/plain");
+		shareIntent.putExtra(Intent.EXTRA_TEXT, Text);
+		startActivity(Intent.createChooser(shareIntent, "Выполнить действие с помощью"));
+	}
+	
+	private void quit() {
+    	finish();
+	}
+	
 }

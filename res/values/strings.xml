@@ -2,9 +2,9 @@
 <resources>
 
     <string name="app_name">Shifr</string>
-
     <string name="button_crypt">Crypt</string>
-
     <string name="button_decrypt">Decrypt</string>
+    <string name="share">Share</string>
+    <string name="quit">Exit</string>
 
 </resources>
