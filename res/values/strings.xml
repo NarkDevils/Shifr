@@ -7,13 +7,12 @@
     <string name="button_crypt">Crypt</string>
     <string name="button_decrypt">Decrypt</string>
     
-    <string name="share">Поделиться</string>
-    <string name="settings">Настройки</string>
-    <string name="quit">Выход</string>
+    <string name="share">Share</string>
+    <string name="settings">Settings</string>
+    <string name="quit">Exit</string>
     
-    <string name="settings_general">Настройки</string>
-    <string name="key_title">Ключ</string>
-    <string name="key_summary">Максимум 16 символов</string>
-    <string name="key_dialogTitle">Введите ключ</string>
+    <string name="key_title">Key</string>
+    <string name="key_summary">Maximum of 16 characters</string>
+    <string name="key_dialogTitle">Enter the key</string>
 
 </resources>
