@@ -13,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import ru.narkdevils.shifr.Settings;
 
 public class ShifrActivity extends Activity implements OnClickListener {
 
