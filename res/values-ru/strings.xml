@@ -8,6 +8,7 @@
     <string name="button_decrypt">Расшифровать</string>
     
     <string name="share">Поделиться</string>
+    <string name="create_chooser">Выполнить действие с помощью</string>
     <string name="settings">Настройки</string>
     <string name="quit">Выход</string>
     
