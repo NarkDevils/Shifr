@@ -15,8 +15,6 @@ import android.widget.EditText;
 
 public class ShifrActivity extends Activity implements OnClickListener {
 
-	Settings mSettings;
-
 	EditText editText1;
 	EditText editText2;
 	Button button1;
