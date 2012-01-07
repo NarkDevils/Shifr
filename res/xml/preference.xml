@@ -5,7 +5,7 @@
 
     <EditTextPreference
       android:key="key_id"
-      android:defaultValue="narkdevils"
+      android:defaultValue="defaultkey"
       android:title="@string/key_title"
       android:summary="@string/key_summary"
       android:dialogTitle="@string/key_dialogTitle"

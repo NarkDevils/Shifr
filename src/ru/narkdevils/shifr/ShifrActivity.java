@@ -172,17 +172,20 @@ public class ShifrActivity extends Activity implements OnClickListener {
 		getPrefs();
 
 		int j = 0, ij;
-		char ch;
+		char uCh, lCh;
 
 		for (int k = 0, ki = 0; k != text.length; k++, ki++) {
 			if (ki == key.length)
 				ki = 0;
-			for (ij = 0, ch = 'a'; ch <= 'z'; ch++, ij++)
-				if (key[ki] == ch)
+			for (ij = 0, uCh = 'A', lCh = 'a'; uCh <= 'Z' && lCh <= 'z'; uCh++, lCh++, ij++)
+				if (key[ki] == lCh || key[ki] == uCh)
 					j = ij;
-			for (ij = 0, ch = 'a'; ch <= 'z'; ch++, ij++)
+			for (ij = 0, uCh = 'A', lCh = 'a'; uCh <= 'Z' && lCh <= 'z'; uCh++, lCh++, ij++)
 				if (text[k] == table_lc[ij][j]) {
-					text[k] = ch;
+					text[k] = lCh;
+					break;
+				} else if (text[k] == table_uc[ij][j]) {
+					text[k] = uCh;
 					break;
 				}
 		}
@@ -191,10 +194,8 @@ public class ShifrActivity extends Activity implements OnClickListener {
 	}
 
 	private void getPrefs() {
-		SharedPreferences prefs = PreferenceManager
-				.getDefaultSharedPreferences(getBaseContext());
-		char[] editTextPreference = prefs.getString("key_id", "narkdevils")
-				.toCharArray();
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		char[] editTextPreference = prefs.getString("key_id", "defaultkey").toCharArray();
 		key = editTextPreference;
 	}
 
