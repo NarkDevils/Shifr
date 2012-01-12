@@ -3,24 +3,17 @@
     xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:padding="10dp"
     android:background="@drawable/bg_portrait_main"
     android:orientation="vertical" >
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:padding="10dp"
-        android:layout_weight="1"
-        android:orientation="vertical" >
-
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:src="@drawable/edittext_top" />
-
+
         <EditText
             android:id="@+id/editText1"
             android:layout_width="fill_parent"
@@ -41,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/edittext_bottom" />
-
+
         <LinearLayout
             android:id="@+id/linearLayout1"
             android:layout_width="fill_parent"
@@ -79,7 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/edittext_top" />
-
+
             <EditText
                 android:id="@+id/editText2"
                 android:layout_width="fill_parent"
@@ -98,14 +91,5 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/edittext_bottom" />
         </LinearLayout>
-    </LinearLayout>
-
-    <com.google.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/admob_publisher_id"
-        ads:loadAdOnCreate="true" />
     
 </LinearLayout>

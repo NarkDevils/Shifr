@@ -15,10 +15,8 @@ import android.widget.EditText;
 
 public class ShifrActivity extends Activity implements OnClickListener {
 
-	EditText editText1;
-	EditText editText2;
-	Button button1;
-	Button button2;
+	EditText editText1, editText2;
+	Button button1, button2;
 	
 	private char[] key;
 	private char[][] table_lc = {
@@ -101,7 +99,6 @@ public class ShifrActivity extends Activity implements OnClickListener {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle item selection
 		switch (item.getItemId()) {
 		case R.id.share:
 			share();
