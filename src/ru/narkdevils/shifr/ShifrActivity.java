@@ -19,7 +19,7 @@ public class ShifrActivity extends Activity implements OnClickListener {
 	Button button1, button2;
 	
 	private char[] key;
-	private char[][] table_lc = {
+	private char[][] table_lc_en = {
 			{ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' },
 			{ 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a' },
 			{ 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b' },
@@ -48,7 +48,7 @@ public class ShifrActivity extends Activity implements OnClickListener {
 			{ 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y' }
 	};
 
-	private char[][] table_uc = {
+	private char[][] table_uc_en = {
 			{ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' },
 			{ 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A' },
 			{ 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B' },
@@ -148,7 +148,7 @@ public class ShifrActivity extends Activity implements OnClickListener {
 						j = ij;
 				}
 				if (text[k] != ' ')
-					text[k] = table_lc[i][j];
+					text[k] = table_lc_en[i][j];
 			} else if (text[k] >= 'A' && text[k] <= 'Z') {
 				for (ij = 0, uCh = 'A', lCh = 'a'; uCh <= 'Z' && lCh <= 'z'; uCh++, lCh++, ij++) {
 					if (text[k] == uCh)
@@ -157,7 +157,7 @@ public class ShifrActivity extends Activity implements OnClickListener {
 						j = ij;
 				}
 				if (text[k] != ' ')
-					text[k] = table_uc[i][j];
+					text[k] = table_uc_en[i][j];
 			}
 
 		}
@@ -178,10 +178,10 @@ public class ShifrActivity extends Activity implements OnClickListener {
 				if (key[ki] == lCh || key[ki] == uCh)
 					j = ij;
 			for (ij = 0, uCh = 'A', lCh = 'a'; uCh <= 'Z' && lCh <= 'z'; uCh++, lCh++, ij++)
-				if (text[k] == table_lc[ij][j]) {
+				if (text[k] == table_lc_en[ij][j]) {
 					text[k] = lCh;
 					break;
-				} else if (text[k] == table_uc[ij][j]) {
+				} else if (text[k] == table_uc_en[ij][j]) {
 					text[k] = uCh;
 					break;
 				}
