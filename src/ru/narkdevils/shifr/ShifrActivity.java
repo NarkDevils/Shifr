@@ -228,6 +228,24 @@ public class ShifrActivity extends Activity implements OnClickListener {
 				}
 				if (text[k] != ' ')
 					text[k] = table_uc_en[i][j];
+			} else if(text[k] >= 'à' && text[k] <= 'ÿ' || text[k] == '¸') {
+				if (text[k] == '¸') text[k] = 'å';
+				for (ij = 0, uCh = 'À', lCh = 'à'; uCh <= 'ß' && lCh <= 'ÿ'; uCh++, lCh++, ij++) {
+					if (text[k] == lCh)
+						i = ij;
+					if (key[ki] == lCh || key[ki] == uCh)
+						j = ij;
+				}
+				text[k] = table_lc_ru[i][j];
+			} else if(text[k] >= 'À' && text[k] <= 'ß' || text[k] == '¨') {
+				if (text[k] == '¨') text[k] = 'Å';
+				for (ij = 0, uCh = 'À', lCh = 'à'; uCh <= 'ß' && lCh <= 'ÿ'; uCh++, lCh++, ij++) {
+					if (text[k] == uCh)
+						i = ij;
+					if (key[ki] == uCh || key[ki] == lCh)
+						j = ij;
+				}
+				text[k] = table_uc_ru[i][j];
 			}
 
 		}
