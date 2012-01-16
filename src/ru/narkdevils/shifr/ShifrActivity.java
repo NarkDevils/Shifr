@@ -280,7 +280,7 @@ public class ShifrActivity extends Activity implements OnClickListener {
 
 	private void getPrefs() {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-		char[] editTextPreference = prefs.getString("key_id", "defaultkey").toCharArray();
+		char[] editTextPreference = prefs.getString("key_id", "").toCharArray();
 		key = editTextPreference;
 	}
 

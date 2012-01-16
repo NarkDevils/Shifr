@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="admob_publisher_id">a14ed9c35051bc8</string>
-    
+  
     <string name="app_name">Shifr</string>
     <string name="button_crypt">Crypt</string>
     <string name="button_decrypt">Decrypt</string>
@@ -15,5 +13,10 @@
     <string name="key_title">Key</string>
     <string name="key_summary">Maximum of 16 characters</string>
     <string name="key_dialogTitle">Enter the key</string>
+    <string name="information">Information</string>
+    <string name="like_title">Like!</string>
+    <string name="like_summary">Like in market</string>
+    <string name="version">Version</string>
+    <string name="versionName">1.1.1</string>
 
 </resources>

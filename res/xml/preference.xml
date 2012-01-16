@@ -13,5 +13,19 @@
       android:persistent="true" />
 
   </PreferenceCategory>
+  
+  <PreferenceCategory android:title="@string/information">
+    
+    <Preference
+      android:key="like_button"
+      android:title="@string/like_title"
+      android:summary="@string/like_summary" />
+
+    <Preference
+      android:title="@string/version"
+      android:summary="@string/versionName"
+      android:enabled="false" />
+
+  </PreferenceCategory>
 
 </PreferenceScreen>
