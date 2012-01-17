@@ -11,7 +11,7 @@
     <string name="quit">Выход</string>
     
     <string name="key_title">Ключ</string>
-    <string name="key_summary">Максимум 16 символов</string>
+    <string name="key_summary">Максимум 16 символов (EN a-z; RU а-я)</string>
     <string name="key_dialogTitle">Введите ключ</string>
     <string name="information">Информация</string>
     <string name="like_title">Дай пять!</string>

@@ -11,7 +11,7 @@
     <string name="quit">Exit</string>
     
     <string name="key_title">Key</string>
-    <string name="key_summary">Maximum of 16 characters</string>
+    <string name="key_summary">Maximum of 16 characters (EN a-z; RU а-я)</string>
     <string name="key_dialogTitle">Enter the key</string>
     <string name="information">Information</string>
     <string name="like_title">Rate it!</string>
