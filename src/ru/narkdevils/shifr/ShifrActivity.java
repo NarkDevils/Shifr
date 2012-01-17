@@ -208,46 +208,40 @@ public class ShifrActivity extends Activity implements OnClickListener {
 		char uCh, lCh;
 
 		for (int k = 0, ki = 0; k < text.length; k++, ki++) {
-			if (ki == key.length)
-				ki = 0;
+			if (ki == key.length) ki = 0;
 			if (text[k] >= 'a' && text[k] <= 'z') {
 				for (ij = 0, uCh = 'A', lCh = 'a'; uCh <= 'Z' && lCh <= 'z'; uCh++, lCh++, ij++) {
-					if (text[k] == lCh)
-						i = ij;
-					if (key[ki] == lCh || key[ki] == uCh)
-						j = ij;
+					if (text[k] == lCh) i = ij;
+					if (key[ki] == lCh || key[ki] == uCh) j = ij;
 				}
-				if (text[k] != ' ')
-					text[k] = table_lc_en[i][j];
-			} else if (text[k] >= 'A' && text[k] <= 'Z') {
+				text[k] = table_lc_en[i][j];
+			} else 
+			
+			if (text[k] >= 'A' && text[k] <= 'Z') {
 				for (ij = 0, uCh = 'A', lCh = 'a'; uCh <= 'Z' && lCh <= 'z'; uCh++, lCh++, ij++) {
-					if (text[k] == uCh)
-						i = ij;
-					if (key[ki] == uCh || key[ki] == lCh)
-						j = ij;
+					if (text[k] == uCh) i = ij;
+					if (key[ki] == uCh || key[ki] == lCh) j = ij;
 				}
-				if (text[k] != ' ')
-					text[k] = table_uc_en[i][j];
-			} else if(text[k] >= 'à' && text[k] <= 'ÿ' || text[k] == '¸') {
+				text[k] = table_uc_en[i][j];
+			} else 
+			
+			if(text[k] >= 'à' && text[k] <= 'ÿ' || text[k] == '¸') {
 				if (text[k] == '¸') text[k] = 'å';
 				for (ij = 0, uCh = 'À', lCh = 'à'; uCh <= 'ß' && lCh <= 'ÿ'; uCh++, lCh++, ij++) {
-					if (text[k] == lCh)
-						i = ij;
-					if (key[ki] == lCh || key[ki] == uCh)
-						j = ij;
+					if (text[k] == lCh) i = ij;
+					if (key[ki] == lCh || key[ki] == uCh) j = ij;
 				}
 				text[k] = table_lc_ru[i][j];
-			} else if(text[k] >= 'À' && text[k] <= 'ß' || text[k] == '¨') {
+			} else 
+			
+			if(text[k] >= 'À' && text[k] <= 'ß' || text[k] == '¨') {
 				if (text[k] == '¨') text[k] = 'Å';
 				for (ij = 0, uCh = 'À', lCh = 'à'; uCh <= 'ß' && lCh <= 'ÿ'; uCh++, lCh++, ij++) {
-					if (text[k] == uCh)
-						i = ij;
-					if (key[ki] == uCh || key[ki] == lCh)
-						j = ij;
+					if (text[k] == uCh) i = ij;
+					if (key[ki] == uCh || key[ki] == lCh) j = ij;
 				}
 				text[k] = table_uc_ru[i][j];
 			}
-
 		}
 		return text;
 	}
@@ -259,22 +253,39 @@ public class ShifrActivity extends Activity implements OnClickListener {
 		int j = 0, ij;
 		char uCh, lCh;
 
-		for (int k = 0, ki = 0; k != text.length; k++, ki++) {
-			if (ki == key.length)
-				ki = 0;
+		for (int k = 0, ki = 0; k < text.length; k++, ki++) {
+			if (ki == key.length) ki = 0;
+			
+			if (key[ki] >= 'a' && key[ki] <= 'z' || key[ki] >= 'A' && key[ki] <= 'Z') {
 			for (ij = 0, uCh = 'A', lCh = 'a'; uCh <= 'Z' && lCh <= 'z'; uCh++, lCh++, ij++)
-				if (key[ki] == lCh || key[ki] == uCh)
-					j = ij;
+				if (key[ki] == lCh || key[ki] == uCh) j = ij;
+			
 			for (ij = 0, uCh = 'A', lCh = 'a'; uCh <= 'Z' && lCh <= 'z'; uCh++, lCh++, ij++)
 				if (text[k] == table_lc_en[ij][j]) {
 					text[k] = lCh;
 					break;
-				} else if (text[k] == table_uc_en[ij][j]) {
+				} else
+				if (text[k] == table_uc_en[ij][j]) {
 					text[k] = uCh;
 					break;
 				}
+			} else
+			
+			if (key[ki] >= 'à' && key[ki] <= 'ÿ' || key[ki] >= 'À' && key[ki] <= 'ß') {
+			for (ij = 0, uCh = 'À', lCh = 'à'; uCh <= 'ß' && lCh <= 'ÿ'; uCh++, lCh++, ij++)
+				if (key[ki] == lCh || key[ki] == uCh) j = ij;
+				
+			for (ij = 0, uCh = 'À', lCh = 'à'; uCh <= 'ß' && lCh <= 'ÿ'; uCh++, lCh++, ij++)
+				if (text[k] == table_lc_ru[ij][j]) {
+					text[k] = lCh;
+					break;
+				} else
+				if (text[k] == table_uc_ru[ij][j]) {
+					text[k] = uCh;
+					break;
+				}
+			}
 		}
-
 		return text;
 	}
 
