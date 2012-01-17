@@ -14,8 +14,8 @@
     <string name="key_summary">Максимум 16 символов</string>
     <string name="key_dialogTitle">Введите ключ</string>
     <string name="information">Информация</string>
-    <string name="like_title">Like!</string>
-    <string name="like_summary">Like in market</string>
+    <string name="like_title">Дай пять!</string>
+    <string name="like_summary">Оцените приложение в Android Market :)</string>
     <string name="version">Версия</string>
     <string name="versionName">1.1.1</string>
 
