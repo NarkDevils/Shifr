@@ -17,13 +17,16 @@ public class Preferences extends PreferenceActivity {
 		Preference myPref = (Preference) findPreference("like_button");
 		myPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 		      public boolean onPreferenceClick(Preference arg0) {
-		    	  Intent intent = new Intent(Intent.ACTION_VIEW);
 		    	  try {
+		    		  Intent intent = new Intent(Intent.ACTION_VIEW);
 		    		  intent.setData(Uri.parse("market://details?id=ru.narkdevils.shifr"));
+		    		  startActivity(intent);
 		    	  } catch (ActivityNotFoundException e) {
+		    		  Intent intent = new Intent(Intent.ACTION_VIEW);
 		    		  intent.setData(Uri.parse("http://market.android.com/details?id=ru.narkdevils.shifr"));
+		    		  startActivity(intent);
 		    	  }
-		    	  startActivity(intent);
+		    	  
 		          return true;
 		      }
 		});
