@@ -157,7 +157,6 @@ public class ShifrActivity extends Activity implements OnClickListener {
 		button2 = (Button) findViewById(R.id.button2);
 		button1.setOnClickListener(this);
 		button2.setOnClickListener(this);
-
 	}
 
 	@Override
@@ -187,13 +186,11 @@ public class ShifrActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.button1:
-			char[] cText = Crypt(editText1.getText().toString().toCharArray());
-			CharSequence seq1 = new String(cText);
+			CharSequence seq1 = new String(Crypt(editText1.getText().toString().toCharArray()));
 			editText2.setText(seq1);
 			break;
 		case R.id.button2:
-			char[] dcText = Decrypt(editText1.getText().toString().toCharArray());
-			CharSequence seq2 = new String(dcText);
+			CharSequence seq2 = new String(Decrypt(editText1.getText().toString().toCharArray()));
 			editText2.setText(seq2);
 			break;
 		}
@@ -291,15 +288,15 @@ public class ShifrActivity extends Activity implements OnClickListener {
 
 	private void getPrefs() {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-		char[] editTextPreference = prefs.getString("key_id", "").toCharArray();
+		char[] editTextPreference = prefs.getString("key_id", "defaultkey").toCharArray();
 		key = editTextPreference;
 	}
 
 	private void share() {
 		String Text = editText2.getText().toString();
 		Intent shareIntent = new Intent(Intent.ACTION_SEND);
-		shareIntent.setType("text/plain");
 		shareIntent.putExtra(Intent.EXTRA_TEXT, Text);
+		shareIntent.setType("text/plain");
 		startActivity(Intent.createChooser(shareIntent, getString(R.string.create_chooser)));
 	}
 
