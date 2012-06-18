@@ -23,7 +23,7 @@ public class Preferences extends PreferenceActivity {
 		    		  startActivity(intent);
 		    	  } catch (ActivityNotFoundException e) {
 		    		  Intent intent = new Intent(Intent.ACTION_VIEW);
-		    		  intent.setData(Uri.parse("http://market.android.com/details?id=ru.narkdevils.shifr"));
+		    		  intent.setData(Uri.parse("http://play.google.com/store/apps/details?id=ru.narkdevils.shifr"));
 		    		  startActivity(intent);
 		    	  }
 		    	  

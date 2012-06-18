@@ -1,6 +1,7 @@
 package ru.narkdevils.shifr;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,12 +13,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class ShifrActivity extends Activity implements OnClickListener {
 
 	EditText editText1, editText2;
 	Button button1, button2;
-
+	
 	private char[] key;
 	private char[][] table_lc_en = {
 			{ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' },
@@ -186,12 +188,22 @@ public class ShifrActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.button1:
-			CharSequence seq1 = new String(Crypt(editText1.getText().toString().toCharArray()));
-			editText2.setText(seq1);
+			try
+			{
+				CharSequence seq1 = new String(Crypt(editText1.getText().toString().toCharArray()));
+				editText2.setText(seq1);
+			} catch (Exception e) {
+				Toast.makeText(this, getString(R.string.except), 1).show();
+			}
 			break;
 		case R.id.button2:
-			CharSequence seq2 = new String(Decrypt(editText1.getText().toString().toCharArray()));
-			editText2.setText(seq2);
+			try
+			{
+				CharSequence seq2 = new String(Decrypt(editText1.getText().toString().toCharArray()));
+				editText2.setText(seq2);
+			} catch (Exception e) {
+				Toast.makeText(this, getString(R.string.except), 1).show();
+			}
 			break;
 		}
 

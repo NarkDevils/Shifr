@@ -17,6 +17,8 @@
     <string name="like_title">Дай пять!</string>
     <string name="like_summary">Оцените приложение в Android Market :)</string>
     <string name="version">Версия</string>
-    <string name="versionName">1.2.1</string>
+    <string name="versionName">1.2.2</string>
+    
+    <string name="except">Поле "Ключ" пустое\nПожалуйста, введите Ключ</string>
 
 </resources>
