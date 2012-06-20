@@ -199,7 +199,6 @@ public class ShifrActivity extends Activity implements OnClickListener {
 				CharSequence seq1 = new String(Crypt(editText1.getText().toString().toCharArray()));
 				editText2.setText(seq1);
 			} catch (Exception e) {
-				//Toast.makeText(this, getString(R.string.except), 1).show();
 				showDialog(DIALOG_ALERT);
 			}
 			break;
@@ -209,7 +208,7 @@ public class ShifrActivity extends Activity implements OnClickListener {
 				CharSequence seq2 = new String(Decrypt(editText1.getText().toString().toCharArray()));
 				editText2.setText(seq2);
 			} catch (Exception e) {
-				Toast.makeText(this, getString(R.string.except), 1).show();
+				showDialog(DIALOG_ALERT);
 			}
 			break;
 		}
