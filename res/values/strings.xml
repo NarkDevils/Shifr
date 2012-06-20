@@ -19,6 +19,7 @@
     <string name="version">Version</string>
     <string name="versionName">1.2.2</string>
     
-    <string name="except">Field "Key" is empty\nPlease enter the Key</string>
+    <string name="exceptTitle">The field \"Key\" is empty</string>
+    <string name="exceptMessage">Please enter the key</string>
 
 </resources>

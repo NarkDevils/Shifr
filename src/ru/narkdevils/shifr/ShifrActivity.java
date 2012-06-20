@@ -1,8 +1,13 @@
 package ru.narkdevils.shifr;
 
 import android.app.Activity;
+import android.app.AlertDialog.Builder;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
@@ -18,6 +23,8 @@ public class ShifrActivity extends Activity implements OnClickListener {
 
 	EditText editText1, editText2;
 	Button button1, button2;
+	
+	static final int DIALOG_ALERT = 0;
 	
 	private char[] key;
 	private char[][] table_lc_en = {
@@ -192,7 +199,8 @@ public class ShifrActivity extends Activity implements OnClickListener {
 				CharSequence seq1 = new String(Crypt(editText1.getText().toString().toCharArray()));
 				editText2.setText(seq1);
 			} catch (Exception e) {
-				Toast.makeText(this, getString(R.string.except), 1).show();
+				//Toast.makeText(this, getString(R.string.except), 1).show();
+				showDialog(DIALOG_ALERT);
 			}
 			break;
 		case R.id.button2:
@@ -206,6 +214,41 @@ public class ShifrActivity extends Activity implements OnClickListener {
 			break;
 		}
 
+	}
+	
+	private static Dialog createInputAlert(final Context context) {
+		Dialog dialog;
+		Builder builder = new Builder(context);
+		
+		final SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
+		final EditText editText = new EditText(context);
+		
+		DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				Editor editor = settings.edit();
+				editor.putString("key_id", editText.getText().toString());
+				editor.commit();
+				dialog.dismiss();
+			}
+		};
+		
+		dialog = builder.setTitle(R.string.exceptTitle)
+						.setMessage(R.string.exceptMessage)
+						.setPositiveButton("Ok", onClickListener)
+						.setView(editText).create();
+		return dialog;
+	}
+	
+	protected Dialog onCreateDialog(int id) {
+	    Dialog dialog;
+	    switch(id) {
+	    case DIALOG_ALERT:
+	    	dialog = createInputAlert(this);
+	        break;
+	    default:
+	        dialog = null;
+	    }
+	    return dialog;
 	}
 
 	private char[] Crypt(char[] text) {

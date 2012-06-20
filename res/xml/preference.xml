@@ -22,8 +22,8 @@
       android:summary="@string/like_summary" />
 
     <Preference
+      android:key="version"
       android:title="@string/version"
-      android:summary="@string/versionName"
       android:enabled="false" />
 
   </PreferenceCategory>
