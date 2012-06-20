@@ -19,6 +19,7 @@
     <string name="version">Версия</string>
     <string name="versionName">1.2.2</string>
     
-    <string name="except">Поле "Ключ" пустое\nПожалуйста, введите Ключ</string>
-
+	<string name="exceptTitle">Поле \"Ключ\" пустое</string>
+    <string name="exceptMessage">Пожалуйста, введите Ключ</string>
+    
 </resources>
